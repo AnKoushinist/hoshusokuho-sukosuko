@@ -1,2 +1,2 @@
 # hoshusokuho-sukosuko
-Comment griefing tool for
+Comment griefing tool for Hosyu Sokuhō.
