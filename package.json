@@ -1,0 +1,19 @@
+{
+  "name": "hoshusokuho-sukosuko",
+  "version": "1.0.0",
+  "description": "Comment griefing tools for Hoshu Sokuho",
+  "main": "index.js",
+  "scripts": {
+    "test": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnKoushinist/hoshusokuho-sukosuko.git"
+  },
+  "author": "AnKoushinist",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/AnKoushinist/hoshusokuho-sukosuko/issues"
+  },
+  "homepage": "https://github.com/AnKoushinist/hoshusokuho-sukosuko#readme"
+}
