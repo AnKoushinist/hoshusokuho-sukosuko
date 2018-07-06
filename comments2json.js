@@ -1,9 +1,11 @@
 const cheerio = require("cheerio");
 const request = require("request");
 
-const extractor = /(?:http:\/\/)?(?:hosyusokuhou.jp\/archives\/)?([0-9]+)(?:\.html)?/;
-const dateExtractor = /[0-9]{4}年[0-9]{2}月[0-9]{2}日 [0-9]{2}:[0-9]{2}:[0-9]{2}/;
-const idExtractor = /ID:([a-zA-Z0-9]+)/;
+const {
+    post: extractor,
+    jpnDate: dateExtractor,
+    postId: idExtractor
+} = require("./regex");
 
 function requestGet(url, options) {
     return new Promise((resolve, reject) => {
@@ -17,10 +19,13 @@ function requestGet(url, options) {
     });
 }
 
-async function convertNow(input) {
+async function fromUrl() {
     const id = extractor.exec(input)[1];
     const url = `http://hosyusokuhou.jp/archives/${id}.html`;
-    const text = (await requestGet(url)).body;
+    return await fromHtml((await requestGet(url)).body);
+}
+
+async function fromHtml(text) {
     const $ = cheerio.load(text);
 
     const commentsRoot = $("div#comments-list");
@@ -39,4 +44,4 @@ async function convertNow(input) {
     return data;
 }
 
-module.exports = convertNow;
+module.exports = { fromHtml, fromUrl };
