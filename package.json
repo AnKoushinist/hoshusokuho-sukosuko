@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/AnKoushinist/hoshusokuho-sukosuko#readme",
   "dependencies": {
+    "bootstrap": "^4.1.1",
     "cheerio": "^1.0.0-rc.2",
+    "jquery": "^3.3.1",
     "nw": "^0.31.4",
     "nwjs": "^1.4.4",
     "puppeteer": "^1.5.0",
