@@ -18,13 +18,25 @@
             width: 100%;
         }
     </style>
+
+    <script>
+        const $ = require("jquery");
+        $(() => {
+            $(live || "#live").click(() => {
+                location.href = "./watch_main.html";
+            });
+            $(troll || "#troll").click(() => {
+                alert("Not implemented yet");
+            });
+        });
+    </script>
 </head>
 
 <body>
     <h1>保守速報をすこれ😡</h1>
     <div id="button_container">
-        <button>保守速報で実況するんだ😏</button>
-        <button>保守速報を荒らすんだ🤔</button>
+        <button id="live">保守速報で実況するんだ😏</button>
+        <button id="troll">保守速報を荒らすんだ🤔</button>
     </div>
     <p>設定をいじりたかったらマニュアル見ながら
         <code>config.json</code>を弄ると良いんだ🙋</p>
