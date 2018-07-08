@@ -1,9 +1,8 @@
 const puppeteer = require("puppeteer");
 
 const { fromHtml: c2j } = require("./comments2json");
-const {
-    post: postUrlExtractor
-} = require("./regex");
+const { post: postUrlExtractor } = require("./regex");
+const { puppeteer: config } = require("./config");
 
 class CommentPostParent {
     constructor(browser) {
@@ -57,7 +56,7 @@ class CommentPostPage {
 }
 
 async function open(options) {
-    return new CommentPostParent(await puppeteer.launch(options || {}));
+    return new CommentPostParent(await puppeteer.launch(options || config));
 }
 
 module.exports = open;
