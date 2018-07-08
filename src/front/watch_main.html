@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>保守速報で実況するんだ😏</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #efefef;
+        }
+
+        #top-manage,
+        #fast-jump,
+        #url {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #top-pinned {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #top-manage>*,
+        #fast-jump>* {
+            padding-left: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+    <script>
+        const controller = require("../comment_post");
+        const $ = require("jquery");
+        $(() => {
+            const jError = $(error);
+            function errors(text) {
+                if (text) {
+                    jError.removeClass("hidden").text(text);
+                } else {
+                    jError.addClass("hidden").text("");
+                }
+            }
+            $(go).click(() => {
+                errors("Test")
+            });
+        });
+    </script>
 </head>
+
 <body>
-    
+    <div id="top-pinned">
+        <div id="top-manage">
+            <a href="./index.html">戻る</a>
+            <form id="url">
+                <div>URL:</div>
+                <input type="text" id="url">
+                <input type="button" id="go" value="表示">
+            </form>
+        </div>
+        <p id="error" class="hidden"></p>
+        <div id="fast-jump"></div>
+    </div>
 </body>
+
 </html>

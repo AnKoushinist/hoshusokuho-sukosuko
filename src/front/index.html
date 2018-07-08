@@ -22,7 +22,9 @@
     <script>
         const $ = require("jquery");
         $(() => {
+            console.log($(live));
             $(live || "#live").click(() => {
+                console.log($(live));
                 location.href = "./watch_main.html";
             });
             $(troll || "#troll").click(() => {

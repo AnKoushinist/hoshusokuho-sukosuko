@@ -6,8 +6,8 @@ const {
 } = require("./regex");
 
 class CommentPostParent {
-    constructor(options) {
-        this.browser = await puppeteer.launch(options || {});
+    constructor(browser) {
+        this.browser = browser;
     }
 
     async open(url) {
@@ -56,5 +56,9 @@ class CommentPostPage {
     }
 }
 
-module.exports = CommentPostParent;
+async function open(options) {
+    return new CommentPostParent(await puppeteer.launch(options || {}));
+}
+
+module.exports = open;
 
